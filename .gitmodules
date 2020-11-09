@@ -1,0 +1,3 @@
+[submodule "MLKG"]
+	path = MLKG
+	url = https://github.com/akmubi/MLKG.git
