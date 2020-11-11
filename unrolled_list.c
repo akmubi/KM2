@@ -109,13 +109,13 @@ void list_get_array(struct UnrolledList *head, double *another_array, int size)
 	while (iterator != head->root && size != 0);
 }
 
-double list_get_by(struct UnrolledList *head, int index)
+double *list_get_ref_by(struct UnrolledList *head, int index)
 {
 	int list_size = list_get_size(head);
 	if (index >= list_size || index < 0)
 	{
-		fprintf(stderr, "Incorrect index %d. Total list size was (%d)\n", index, list_size);
-		return -1.0;
+		fprintf(stderr, "Incorrect index %d. List size - %d\n", index, list_size);
+		return NULL;
 	}
 
 	struct Node *iterator = head->root;
@@ -124,7 +124,15 @@ double list_get_by(struct UnrolledList *head, int index)
 		iterator = iterator->next;
 		index -= ARRAY_SIZE;
 	}
-	return iterator->array[index];
+	return &iterator->array[index];
+}
+
+double list_get_by(struct UnrolledList *head, int index)
+{
+	double *return_value = list_get_ref_by(head, index);
+	if (return_value == NULL)
+		return -1.0;
+	return *return_value;
 }
 
 static double find_max(double *array, int size)
