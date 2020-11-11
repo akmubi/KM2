@@ -45,11 +45,9 @@ ifeq ($(OS), Windows_NT)
 clean:
 	del /q /s *.o
 	rmdir /q /s $(BUILDPATH)
-	cd $(SUBMODULEPATH) && make clean
 
 else
 clean:
 	rm -f *.o
 	rm -rf $(BUILDPATH)
-	cd $(SUBMODULEPATH) && make clean
 endif
