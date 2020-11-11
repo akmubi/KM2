@@ -16,7 +16,7 @@ extern void homogeneous_generate(	double T,
 					int k,
 					int *I,
 					struct UnrolledList *S,
-					unsigned int *N);
+					struct UnrolledList *N);
 
 
 // НЕОДНОРОДНЫЙ ПУАССОНОВСКИЙ ПРОЦЕСС
@@ -34,6 +34,6 @@ extern void inhomogeneous_generate(	double T,
 					int k,
 					int *I,
 					struct UnrolledList *S,
-					unsigned int *N);
+					struct UnrolledList *N);
 
 #endif // ___POISSON_PROCESS_H___
